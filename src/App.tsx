@@ -12,10 +12,10 @@ export default function App() {
   } = useTypingSpeedTest();
 
   return (
-    <div className="flex min-h-screen flex-col gap-8 bg-neutral-900 p-4 sm:gap-10 sm:p-8 md:gap-16 md:px-28">
+    <div className="mx-auto flex min-h-screen max-w-[1880px] flex-col gap-8 px-4 pt-4 pb-8 md:gap-10 md:px-8 md:pt-8 md:pb-10 lg:gap-16 lg:px-28 lg:pb-8">
       <Header>
         <Logo />
-        {bestWpm && <PersonalBest wpm={bestWpm} />}
+        {bestWpm !== null && <PersonalBest wpm={bestWpm} />}
       </Header>
 
       <main className="flex flex-col gap-8">

@@ -1,4 +1,4 @@
-import type { PassageData } from "../models/passage.interface";
+import type { PassageData } from "../models/passage.types";
 
 export const passages: PassageData = {
   easy: [

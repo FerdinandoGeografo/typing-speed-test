@@ -6,10 +6,9 @@ import {
   type ReactNode,
 } from "react";
 import {
-  TIMED_SECONDS,
   type TypingAction,
   type TypingState,
-} from "../models/typing-state.interface";
+} from "../models/typing-test.types";
 import {
   calculateAccuracy,
   calculateCorrectChars,
@@ -18,6 +17,7 @@ import {
   formatTime,
   getRandomPassage,
 } from "../utils/helpers";
+import { TIMED_SECONDS } from "../constants/test-options";
 import useLocalStorageState from "../hooks/useLocalStorage";
 
 interface TypingSpeedTestContextValue {
@@ -33,6 +33,21 @@ interface TypingSpeedTestContextValue {
 
 const TypingSpeedTestContext =
   createContext<TypingSpeedTestContextValue | null>(null);
+
+const starterState: TypingState = {
+  status: "idle" as const,
+  difficulty: "hard",
+  mode: "timed",
+  passage: {
+    id: "hard-10",
+    text: 'The archaeological expedition unearthed artifacts that complicated prevailing theories about Bronze Age trade networks. Obsidian from Anatolia, lapis lazuli from Afghanistan, and amber from the Baltic—all discovered in a single Mycenaean tomb—suggested commercial connections far more extensive than previously hypothesized. "We\'ve underestimated ancient peoples\' navigational capabilities and their appetite for luxury goods," the lead researcher observed. "Globalization isn\'t as modern as we assume."',
+  },
+  input: "",
+  errors: 0,
+  seconds: TIMED_SECONDS,
+  startedAt: null,
+  finishedAt: null,
+};
 
 function createInitialState(): TypingState {
   return {
@@ -149,7 +164,7 @@ function reducer(state: TypingState, action: TypingAction): TypingState {
 }
 
 function TypingSpeedTestProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, createInitialState());
+  const [state, dispatch] = useReducer(reducer, starterState);
   const [bestWpm, setBestWpm] = useLocalStorageState<number | null>(
     "best",
     null,

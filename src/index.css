@@ -27,6 +27,7 @@
 @theme {
   --font-sans: 'Sora', sans-serif;
   
+  --text-4xl: 2rem; 
   --text-5xl: 2.5rem; 
 
   --color-blue-400: #4ca6ff;

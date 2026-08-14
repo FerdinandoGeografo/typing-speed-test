@@ -1,9 +1,9 @@
-import type { Difficulty } from "./typing-state.interface";
+import type { Difficulty } from "./typing-test.types";
 
-export interface Passage {
+export type Passage = {
   id: string;
   text: string;
-}
+};
 
 export type CharacterState = "pending" | "valid" | "invalid";
 

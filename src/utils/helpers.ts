@@ -1,11 +1,11 @@
-import { passages } from "../data/passages";
+import { passages } from "../constants/passages";
+import { TIMED_SECONDS } from "../constants/test-options";
+import type { ResultType } from "../models/result.types";
 import {
-  TIMED_SECONDS,
   type Difficulty,
   type Mode,
-  type ResultType,
   type TestStatus,
-} from "../models/typing-state.interface";
+} from "../models/typing-test.types";
 
 export function getRandomPassage(difficulty: Difficulty) {
   const candidates = passages[difficulty];

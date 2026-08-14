@@ -1,5 +1,5 @@
 import useTypingSpeedTest from "../hooks/useTypingSpeedTest";
-import type { CharacterState } from "../models/passage.interface";
+import type { CharacterState } from "../models/passage.types";
 
 interface CharacterProps {
   char: string;
@@ -15,7 +15,7 @@ const CHAR_STATES_CLS: Record<CharacterState, string> = {
 
 export default function Character({ char, index }: CharacterProps) {
   const {
-    state: { input },
+    state: { status, input },
   } = useTypingSpeedTest();
 
   const typedChar = input.at(index);
@@ -25,15 +25,17 @@ export default function Character({ char, index }: CharacterProps) {
       : typedChar === char
         ? "valid"
         : "invalid";
-  const hasCursor = index === input.length;
+  const hasCursor = status === "running" && index === input.length;
 
   return (
-    <span className={`relative ${CHAR_STATES_CLS[charState]}`}>
+    <span
+      className={`relative transition-colors duration-300 ${CHAR_STATES_CLS[charState]}`}
+    >
       {char}
       {hasCursor && (
         <span
           aria-hidden="true"
-          className="absolute -inset-x-0.5 top-1/2 h-10 -translate-y-1/2 rounded-sm bg-white/20"
+          className="absolute -inset-x-0.5 top-1/2 h-8.5 -translate-y-1/2 rounded-sm bg-white/20 sm:h-10"
         ></span>
       )}
     </span>

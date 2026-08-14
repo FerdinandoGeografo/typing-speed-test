@@ -4,6 +4,7 @@ import Character from "./Character";
 export default function Passage() {
   const {
     state: {
+      status,
       passage: { id, text },
     },
   } = useTypingSpeedTest();
@@ -11,7 +12,7 @@ export default function Passage() {
 
   return (
     <p
-      className="text-5xl leading-13.5 tracking-normal text-neutral-400"
+      className={`text-4xl leading-[43.8px] tracking-normal whitespace-break-spaces text-neutral-400 transition-all duration-300 sm:text-5xl sm:leading-13.5 ${status === "idle" ? "blur-[10px]" : ""}`}
       aria-hidden="true"
     >
       {passageChars.map((char, index) => (

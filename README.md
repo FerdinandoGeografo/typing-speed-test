@@ -73,31 +73,31 @@ Users should be able to:
 
 ### What I learned
 
-This challenge let me take a step forward in the React ecosystem, practicing component organization and state management on a slightly more complex flow than usal.
+This challenge let me take a step forward in the React ecosystem, practicing component organization and state management on a slightly more complex flow than usual.
 
-**State Management**
+**State Management**:
 I used the Context API together with `useReducer` to get clearer state transitions, since many pieces of state update together in response to the same "events" during the typing test (e.g. starting the test, a keystroke, timer ticking, ...).
 
 Rather than pulling in React Router for what is really just two screens, I kept navigation entirely state-driven: the UI switches between the test screen and the results screen based on a single `status` field in the reducer (`idle`, `running`, `finished`), which felt more honest to how simple the actual navigation logic is.
 
-**Re-renders and derived state**
+**Re-renders and derived state**:
 I spent real time thinking about when and why components re-render, and how to keep state updates and UI updates in sync without redundant work.
-A concrete example: I initially tracked `correctChars` as accumulated state in the reducer, then realized it could be fully derived from `input` and the `passage` text instead - while `errors` genuinely has to stay as state, since a corrected mistake (via backspace) still counts against accuracy event though the character is no longer visible anywhere in the current state.
+A concrete example: I initially tracked `correctChars` as accumulated state in the reducer, then realized it could be fully derived from `input` and the `passage` text instead - while `errors` genuinely has to stay as state, since a corrected mistake (via backspace) still counts against accuracy even though the character is no longer visible anywhere in the current state.
 Working through cases like this helped me build a clearer mental model of "derived vs accumulated" state. Most calculations around timing, WPM, accuracy, and character comparison ended up in standalone utility functions rather than inline in component, which kept the UI components closer to presentational type and easier to reason about independently of the state logic.
 
-**Capturing input accessibly**
+**Capturing input accessibly**:
 For the typing experience itself, I used a visually hidden but screen-reader-accessible text input to capture keystrokes, comparing them character by character against the passage randomly selected (based on the chosen difficulty) when the test is idle.
 
-**Styling**
+**Styling**:
 Tailwind made handling styles and tablet/mobile responsiveness much smoother, and let me stay close to the provided design across breakpoints.
 
-**Confetti**
-For the "new personal best" celebration I used `react-confetti`, a package I hadn't worked with before. Configuring its shape, color, and physics options let me match the confetti burst to the original SVG pattern provided with the callenge instead of using its defaultl look.
+**Confetti**:
+For the "new personal best" celebration I used `react-confetti`, a package I hadn't worked with before. Configuring its shape, color, and physics options let me match the confetti burst to the original SVG pattern provided with the challenge instead of using its default look.
 
 ### AI Collaboration
 
 I used Claude throughout this challenge as a way to practice working with AI tools deliberately, rather than just to get code faster.
-My approach was centered on brainstorming valid strategies withing the React ecosystme and verifying that what I had implemented was actually correct - not copy-pasting blindly, but treating the AI as a assistant that helps refine ideas and code I had already thought through myself.
+My approach was centered on brainstorming valid strategies within the React ecosystem and verifying that what I had implemented was actually correct - not copy-pasting blindly, but treating the AI as a assistant that helps refine ideas and code I had already thought through myself.
 I find this the right way to use these tools when the goal is genuinely learning a technology: the value comes from understanding _why_ a suggestion works, not from the suggestion itself.
 
 ## Author

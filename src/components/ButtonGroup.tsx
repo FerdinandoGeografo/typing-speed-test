@@ -75,14 +75,14 @@ export default function ButtonGroup({
             aria-label={label}
           >
             {options.map((option) => (
-              <li key={option.value}>
+              <li key={`${label}-${option.value}`}>
                 <label
-                  htmlFor={option.value}
+                  htmlFor={`${label}-${option.value}`}
                   className="flex items-center gap-3 px-2.5 py-2 leading-4.75 tracking-tight text-white"
                 >
                   <input
                     className="peer sr-only"
-                    id={option.value}
+                    id={`${label}-${option.value}`}
                     type="radio"
                     name={label}
                     checked={selected === option.value}

@@ -12,8 +12,6 @@ export default function App() {
     bestWpm,
   } = useTypingSpeedTest();
 
-  const showFooter = false;
-
   return (
     <div className="flex h-dvh flex-col gap-6 md:gap-8 lg:gap-14">
       <Header>
@@ -26,7 +24,7 @@ export default function App() {
         {status === "finished" && <ResultScreen />}
       </main>
 
-      {showFooter && <Footer />}
+      <Footer />
     </div>
   );
 }

@@ -15,13 +15,13 @@ export default function App() {
   const showFooter = false;
 
   return (
-    <div className="flex h-full min-h-dvh flex-col gap-8 px-4 pt-4 pb-8 md:gap-10 md:px-8 md:pt-8 md:pb-10 lg:gap-16 lg:px-28 lg:pb-8">
+    <div className="flex h-dvh flex-col gap-6 md:gap-8 lg:gap-14">
       <Header>
         <Logo />
         {bestWpm !== null && <PersonalBest wpm={bestWpm} />}
       </Header>
 
-      <main className="flex flex-col gap-8">
+      <main className="flex-1 overflow-y-auto">
         {status !== "finished" && <TestScreen />}
         {status === "finished" && <ResultScreen />}
       </main>

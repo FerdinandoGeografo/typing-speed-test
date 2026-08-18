@@ -8,6 +8,7 @@ export default function Link({
   children,
   href = "#",
   target = "_blank",
+  rel = "noopener noreferrer",
   ...props
 }: LinkProps) {
   return (
@@ -15,6 +16,7 @@ export default function Link({
       className="group relative leading-5 tracking-tight text-blue-400 focus:outline-none"
       href={href}
       target={target}
+      rel={rel}
       {...props}
     >
       {children}

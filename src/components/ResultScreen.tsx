@@ -24,7 +24,7 @@ export default function ResultScreen() {
   const { title, message } = RESULT_MESSAGES[resultType];
 
   return (
-    <section className="relative flex flex-col items-center gap-6 sm:gap-8 md:mt-10 lg:mt-0">
+    <section className="spacing-x relative flex flex-col items-center gap-6 pt-2 sm:gap-8 md:mt-10 lg:mt-0">
       {resultType === "record" ? (
         <>
           <Confetti />
@@ -39,12 +39,12 @@ export default function ResultScreen() {
       ) : (
         <>
           <img
-            className="absolute top-11 left-0.5 size-5.25 sm:size-auto md:top-29 md:-left-0.75"
+            className="absolute top-11 left-0.5 size-5.25 sm:size-auto md:top-11 md:left-4 lg:top-29 lg:-left-0.75"
             src="pattern-star-2.svg"
             alt=""
           />
           <img
-            className="absolute right-3.25 -bottom-20.75 size-9.75 sm:size-auto md:right-0.5 md:bottom-9"
+            className="absolute right-3.25 -bottom-20.75 size-9.75 sm:size-auto md:right-0 md:-bottom-12.5 lg:right-0.5 lg:bottom-9"
             src="pattern-star-1.svg"
             alt=""
           />

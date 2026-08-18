@@ -52,7 +52,7 @@ export default function ButtonGroup({
       <div ref={ref} className="relative flex flex-1 sm:hidden">
         <SelectButton
           className="flex flex-1 items-center justify-center gap-2.5 sm:hidden"
-          aria-haspopup="true"
+          aria-haspopup="listbox"
           aria-expanded={isOpen}
           disabled={disabled}
           onClick={() => setIsOpen((open) => !open)}

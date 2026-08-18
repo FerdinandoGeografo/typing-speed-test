@@ -10,7 +10,7 @@ This is a solution to the [Typing Speed Test challenge on Frontend Mentor](https
     - [Typing Experience](#typing-experience)
     - [Result & Progress](#results--progress)
     - [UI & Responsiveness](#ui--responsiveness)
-  - [Screenshot](#screenshot)
+  - [Screenshots](#screenshots)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -49,9 +49,11 @@ Users should be able to:
 - View the optimal layout depending on their device's screen size
 - See hover and focus states for all interactive elements
 
-### Screenshot
+### Screenshots
 
-![](./screenshot.jpg)
+![Idle state Screen](/screenshots/idle.png)
+![Running state Screen](/screenshots/running.png)
+![Finished state Screen](/screenshots/finished.png)
 
 ### Links
 

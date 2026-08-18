@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useTypingSpeedTest from "../hooks/useTypingSpeedTest";
 import RestartButton from "./RestartButton";
 import ResultMessage from "./ResultMessage";
@@ -18,13 +18,21 @@ export default function ResultScreen() {
     submitBest,
   } = useTypingSpeedTest();
   const [previousBest] = useState(() => bestWpm);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    headingRef.current?.focus();
+  }, []);
   useEffect(() => submitBest(wpm), [submitBest, wpm]);
 
   const resultType = calculateResultType(wpm, previousBest);
   const { title, message } = RESULT_MESSAGES[resultType];
 
   return (
-    <section className="spacing-x relative flex flex-col items-center gap-6 pt-2 sm:gap-8 md:mt-10 lg:mt-0">
+    <section
+      className="spacing-x relative flex flex-col items-center gap-6 pt-2 sm:gap-8 md:mt-10 lg:mt-0"
+      aria-labelledby="test-result-heading"
+    >
       {resultType === "record" ? (
         <>
           <Confetti />
@@ -58,7 +66,12 @@ export default function ResultScreen() {
         </>
       )}
 
-      <ResultMessage title={title} message={message} />
+      <ResultMessage title={title} message={message} headingRef={headingRef} />
+
+      <p role="status" aria-live="polite" className="sr-only">
+        {title}: {wpm} words per minute, {accuracy} percent accuracy,
+        {correctChars} correct and {errors} incorrect characters.
+      </p>
 
       <div className="grid grid-cols-1 gap-4 self-stretch pb-4 sm:grid-cols-3 sm:gap-5 sm:pt-5 sm:pb-8 md:grid-cols-[160px_160px_160px] md:self-center">
         <ResultStat label="WPM">{wpm}</ResultStat>

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import useTypingSpeedTest from "../hooks/useTypingSpeedTest";
 import RestartButton from "./RestartButton";
 import ResultMessage from "./ResultMessage";
@@ -18,11 +18,7 @@ export default function ResultScreen() {
     submitBest,
   } = useTypingSpeedTest();
   const [previousBest] = useState(() => bestWpm);
-  const headingRef = useRef<HTMLHeadingElement>(null);
 
-  useEffect(() => {
-    headingRef.current?.focus();
-  }, []);
   useEffect(() => submitBest(wpm), [submitBest, wpm]);
 
   const resultType = calculateResultType(wpm, previousBest);
@@ -66,7 +62,7 @@ export default function ResultScreen() {
         </>
       )}
 
-      <ResultMessage title={title} message={message} headingRef={headingRef} />
+      <ResultMessage title={title} message={message} />
 
       <p role="status" aria-live="polite" className="sr-only">
         {title}: {wpm} words per minute, {accuracy} percent accuracy,

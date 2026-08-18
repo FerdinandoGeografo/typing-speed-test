@@ -30,7 +30,7 @@
   --text-4xl: 2rem; 
   --text-5xl: 2.5rem; 
 
-  --blur-lg: 10px;
+  --blur-lg: 0.625rem;
 
   --color-blue-400: #4ca6ff;
   --color-blue-600: #177dff;
@@ -64,4 +64,8 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-blue-600);
+}
+
+@utility spacing-x {
+  @apply mx-4 md:mx-8 lg:mx-28;
 }

@@ -1,5 +1,6 @@
 import { passages } from "../constants/passages";
 import { TIMED_SECONDS } from "../constants/test-options";
+import type { CharacterState } from "../models/passage.types";
 import type { ResultType } from "../models/result.types";
 import {
   type Difficulty,
@@ -74,4 +75,14 @@ export function calculateResultType(
   if (previousBest === null) return "baseline";
   if (wpm > previousBest) return "record";
   return "normal";
+}
+
+export function getCharState(
+  expected: string,
+  input: string,
+  index: number,
+): CharacterState {
+  const typed = input.at(index);
+  if (typed === undefined) return "pending";
+  return typed === expected ? "valid" : "invalid";
 }

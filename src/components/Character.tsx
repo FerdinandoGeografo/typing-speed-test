@@ -1,9 +1,11 @@
-import useTypingSpeedTest from "../hooks/useTypingSpeedTest";
+import type { RefObject } from "react";
 import type { CharacterState } from "../models/passage.types";
 
 interface CharacterProps {
   char: string;
-  index: number;
+  state: CharacterState;
+  hasCursor: boolean;
+  ref?: RefObject<HTMLSpanElement | null>;
 }
 
 const CHAR_STATES_CLS: Record<CharacterState, string> = {
@@ -13,23 +15,16 @@ const CHAR_STATES_CLS: Record<CharacterState, string> = {
     "text-red-500 after:absolute after:bottom-0 after:left-0 after:h-0.75 after:w-full after:bg-red-500",
 };
 
-export default function Character({ char, index }: CharacterProps) {
-  const {
-    state: { status, input },
-  } = useTypingSpeedTest();
-
-  const typedChar = input.at(index);
-  const charState: CharacterState =
-    typedChar === undefined
-      ? "pending"
-      : typedChar === char
-        ? "valid"
-        : "invalid";
-  const hasCursor = status === "running" && index === input.length;
-
+export default function Character({
+  char,
+  state,
+  hasCursor,
+  ref,
+}: CharacterProps) {
   return (
     <span
-      className={`relative transition-colors duration-300 ${CHAR_STATES_CLS[charState]}`}
+      ref={ref}
+      className={`relative transition-colors duration-300 ${CHAR_STATES_CLS[state]}`}
     >
       {char}
       {hasCursor && (

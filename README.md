@@ -55,8 +55,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [GitHub Repository](https://github.com/FerdinandoGeografo/tip-calculator-app)
-- Live Site URL: [Tip Calculator App](https://tip-calculator-fg.netlify.app/)
+- Solution URL: [GitHub Repository](https://github.com/FerdinandoGeografo/typing-speed-test)
+- Live Site URL: [Typing Speed Test](https://typing-speed-test-fg.netlify.app/)
 
 ## My process
 
@@ -69,13 +69,11 @@ Users should be able to:
 
 ### What I learned
 
+TODO
+
 ### AI Collaboration
 
-Describe how you used AI tools (if any) during this project. This helps demonstrate your ability to work effectively with AI assistants.
-
-- What tools did you use (e.g., ChatGPT, Claude, GitHub Copilot)?
-- How did you use them (e.g., debugging, generating boilerplate, brainstorming solutions)?
-- What worked well? What didn't?
+TODO
 
 ## Author
 

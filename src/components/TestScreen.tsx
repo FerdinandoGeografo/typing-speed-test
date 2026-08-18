@@ -29,6 +29,7 @@ export default function TestScreen() {
       <div className="relative min-h-20 overflow-hidden">
         <div
           className={`h-full px-4 pt-8 outline-none md:px-8 lg:px-28 ${status === "running" ? "overflow-y-auto pb-8 md:pb-6 lg:pb-16" : "overflow-hidden pb-6.5 md:pb-16 lg:pb-4"}`}
+          tabIndex={-1}
         >
           <Passage />
         </div>

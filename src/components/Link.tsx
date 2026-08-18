@@ -13,7 +13,7 @@ export default function Link({
 }: LinkProps) {
   return (
     <a
-      className="group relative leading-5 tracking-tight text-blue-400 focus:outline-none"
+      className="group relative leading-5 font-bold tracking-normal text-blue-400 focus:outline-none"
       href={href}
       target={target}
       rel={rel}

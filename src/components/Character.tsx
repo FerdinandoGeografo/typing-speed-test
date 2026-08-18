@@ -30,7 +30,7 @@ export default function Character({
       {hasCursor && (
         <span
           aria-hidden="true"
-          className="absolute -inset-x-0.5 top-1/2 h-8.5 -translate-y-1/2 rounded-sm bg-white/20 sm:h-10"
+          className="absolute -inset-x-0.5 top-1/2 h-8.5 -translate-y-1/2 animate-pulse rounded-sm bg-white/20 sm:h-10"
         ></span>
       )}
     </span>

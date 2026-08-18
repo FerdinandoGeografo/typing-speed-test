@@ -24,19 +24,19 @@ export default function TestScreen() {
         <TestSettings />
       </TestToolbar>
 
-      <div
-        className="relative min-h-120"
-        onClick={() => inputRef.current?.focus()}
-      >
-        <HiddenInput inputRef={inputRef} />
+      <HiddenInput inputRef={inputRef} />
+
+      <div className="relative min-h-120">
         <Passage />
+
         {status === "idle" && (
           <StartOverlay onStart={() => dispatch({ type: "start" })} />
         )}
       </div>
+
       {status === "running" && (
         <footer className="flex justify-center border-t border-neutral-700 pt-5.75 lg:mt-8 lg:pt-7.75">
-          <RestartButton className="hover: bg-neutral-800 text-white hover:bg-neutral-700">
+          <RestartButton className="bg-neutral-800 text-white hover:bg-neutral-700">
             <span>Restart test</span>
           </RestartButton>
         </footer>

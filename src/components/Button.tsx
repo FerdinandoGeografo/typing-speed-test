@@ -18,12 +18,14 @@ export default function Button({
   type = "button",
   onClick,
   className = "",
+  ...props
 }: ButtonProps) {
   return (
     <button
       className={`flex h-14 cursor-pointer items-center justify-center rounded-xl text-xl leading-6 font-semibold tracking-[-.3px] capitalize transition-all duration-300 focus:ring-2 focus:ring-blue-400 focus:ring-offset-[3px] focus:ring-offset-black focus:outline-none ${BUTTON_VARIATIONS[variation]} ${className}`}
       type={type}
       onClick={onClick}
+      {...props}
     >
       {children}
     </button>

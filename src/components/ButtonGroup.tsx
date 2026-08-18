@@ -58,9 +58,9 @@ export default function ButtonGroup({
           onClick={() => setIsOpen((open) => !open)}
         >
           <span className="sr-only">{label}:</span>
-          <span>{selectedOption?.label}</span>
+          <span className="shrink-0">{selectedOption?.label}</span>
           <svg
-            className={`h-1.5 w-2.5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+            className={`h-1.5 w-2.5 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
             role="presentation"
             aria-hidden="true"
           >

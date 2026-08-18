@@ -6,7 +6,7 @@ export default function StartOverlay({ onStart }: { onStart: () => void }) {
       className="absolute inset-0 flex cursor-pointer flex-col items-center justify-center gap-5"
       onClick={onStart}
     >
-      <Button onClick={onStart}>
+      <Button className="shrink-0" onClick={onStart}>
         <span>Start typing test</span>
       </Button>
       <p className="text-xl leading-6 text-white">
